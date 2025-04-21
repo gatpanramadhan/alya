@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <audio id="bg-music" autoplay loop hidden>
-      <source src="lagu2.mp3" type="audio/mpeg" />
-      Your browser does not support the audio element.
+    <!-- Audio dengan ID dan muted agar autoplay bisa jalan -->
+    <audio id="bg-music" autoplay loop muted>
+      <source src="audio/lagu2.mp3" type="audio/mpeg" />
+      Browser tidak mendukung audio.
     </audio>
 
-    <link rel="stylesheet" href="style.css" />
     <div id="book">
       <input type="checkbox" id="five" />
       <div id="page5" class="page">
@@ -49,15 +49,20 @@
         <label for="one"></label>
       </div>
     </div>
+
+    <div class="snow-container"></div>
+
+    <!-- Script untuk unmute dan play -->
     <script>
       window.addEventListener("load", function () {
         const music = document.getElementById("bg-music");
+        music.muted = false; // buka mute
         music.play().catch(function (error) {
           console.log("Autoplay diblokir, user perlu klik dulu.");
         });
       });
     </script>
-    <div class="snow-container"></div>
+
+    <script src="js.js"></script>
   </body>
-  <script src="js.js"></script>
 </html>
